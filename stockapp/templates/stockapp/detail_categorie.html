@@ -1,0 +1,31 @@
+{% extends 'base.html' %}
+
+
+{% block content %}
+
+<div>
+    <div class="row">    
+        <div class="col-lg-3 shadow-lg mx-auto mt-5">
+            <div class="portfolio-info  ">
+              <h3>Details du Categorie</h3>
+              <div class="mt-3">
+                <div class="shadow-lg">
+                  <img src="{{ categorie.image.url }}" class="img-fluid rounded-circle" style="max-width: 100px;" alt="{{ categorie.designation }}">
+                </div>
+              <div class="mt-3 ">
+                <ul>
+                   <li><strong>Désignation :</strong>{{ categorie.designation }}</li>
+                   <li><strong>Description :</strong>{{ categorie.description }}</li>
+               </ul>
+              </div>
+              <div class="">
+                <a href="{% url 'ajouter_categorie' %}" class="btn btn-primary bg-primary text-light">Ajouter</a>
+                <a href="{% url 'modifier_categorie' categorie.id %}" class="btn btn-dark bg-dark text-light">Modifier</a> 
+                <a href="{% url 'supprimer_categorie' categorie.id %}" class="btn btn-danger bg-danger text-light">Supprimer</a>      
+              </div>      
+            </div>
+       </div> 
+    </div>
+</div>
+
+{% endblock %}

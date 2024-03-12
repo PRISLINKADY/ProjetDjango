@@ -1,0 +1,36 @@
+{% extends 'base.html' %}
+
+
+
+{% block content %}
+
+
+
+<div class="col-md-8 mx-auto mt-5">
+    <h1>Liste de 10 derniers mouvements</h1>
+    <a href="{% url 'ajouter_stock' %}" class="btn btn-success bg-success text-light">Ajouter</a>
+    <table class="table mt-5">
+        <tr>
+            <th>Produit</th>
+            <th>Quantité</th>
+            <th>Date</th>
+            <th>Type mouvement</th>
+        </tr>
+ 
+        {% for mouvement in mouvements %}
+
+        <tr>
+            <td>{{ mouvement.produit }}</td>
+            <td>{{ mouvement.quantite }}</td>
+            <td>{{ mouvement.date }}</td> 
+            <td>{{ mouvement.type_mouvement }}</td>       
+        </tr>
+
+        {% endfor %} 
+
+    </table>
+  </div>
+
+
+
+{% endblock %}

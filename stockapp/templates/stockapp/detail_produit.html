@@ -1,0 +1,37 @@
+{% extends 'base.html' %}
+
+
+{% block content %}
+
+<div>
+    <div class="row">    
+        <div class="col-lg-3 shadow-lg mx-auto mt-5">
+            <div class="portfolio-info  ">
+              <h3>Details du Produit</h3>
+              <div class="mt-3">
+                <div class="shadow-lg">
+                  <img src="{{ produit.image.url }}" class="img-fluid rounded-circle" style="max-width: 100px;" alt="{{ produit.designation }}">
+                </div>
+              <div class="mt-3 ">
+                <ul>
+                   <li><strong>Réference :</strong>{{ produit.reference }} </li>
+                   <li><strong>Désignation :</strong>{{ produit.designation }} </li>
+                   <li><strong>Categorie :</strong>{{ produit.categorie }} </li>
+                   <li><strong>Description :</strong>{{ produit.description }} </li>
+                   <li><strong>Prix d'achat :</strong>{{ produit.prix_achat }} $</li>
+                   <li><strong>Prix de vente :</strong>{{ produit.prix_vente }} $</li>
+                   <li><strong>Stock minimal :</strong>{{ produit.stock_min }} </li>
+                   <li><strong>Stock maximal :</strong>{{ produit.stock_max }} </li>
+               </ul>
+              </div>
+              <div class="">
+                <a href="{% url 'ajouter_categorie' %}" class="btn btn-primary bg-primary text-light">Ajouter</a>
+                <a href="#" class="btn btn-dark bg-dark text-light">Modifier</a> 
+                <a href="{% url 'supprimer_produit' produit.id %}" class="btn btn-danger bg-danger text-light">Supprimer</a>      
+              </div>      
+            </div>
+       </div> 
+    </div>
+</div>
+
+{% endblock %}
